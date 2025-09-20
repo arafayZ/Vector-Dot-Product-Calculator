@@ -1,0 +1,62 @@
+def dot_product():
+    # Get the size of the vectors
+    while True:
+        try:
+            n = int(input("Enter the number of elements for vectors u and v: "))
+            if n <= 0:
+                print("Please enter a positive integer.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter a positive integer.")
+
+    # Initialize the vectors
+    u = []
+    v = []
+
+    print("\nEnter values for vector u:")
+    for i in range(n):
+        while True:
+            try:
+                value = float(input(f"u[{i+1}]: "))
+                u.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+    print("\nEnter values for vector v:")
+    for i in range(n):
+        while True:
+            try:
+                value = float(input(f"v[{i+1}]: "))
+                v.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+    # Calculate dot product and show detailed calculation
+    dot_product_result = 0
+    calculations = []
+    products = []
+
+    for i in range(n):
+        product = u[i] * v[i]
+        products.append(product)
+        dot_product_result += product
+        calculations.append(f"u[{i+1}] * v[{i+1}] = {u[i]} * {v[i]} = {product}")
+
+    # Display the calculations
+    print("\nCalculations:")
+    for calc in calculations:
+        print(calc)
+
+    # Display the addition of products
+    print("\nAddition of products:")
+    addition_steps = " + ".join([str(prod) for prod in products])
+    print(f"{addition_steps} = {dot_product_result}")
+
+    # Display the final result
+    print(f"\nThe dot product of vectors u and v is: {dot_product_result}")
+
+# Run the function
+dot_product()
